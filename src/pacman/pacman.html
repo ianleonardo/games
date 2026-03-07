@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pac-Man</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style/pacman.css">
+</head>
+
+<body>
+    <!-- Persistent Quit Button -->
+    <a href="../../index.html" class="quit-btn">QUIT MENU</a>
+
+    <div class="app-container">
+        <!-- Game Header (Score, Lives) -->
+        <div class="top-bar">
+            <div class="stat-box">
+                <span class="label">SCORE</span>
+                <span class="value" id="scoreDisplay">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">HIGH SCORE</span>
+                <span class="value" id="highScoreDisplay">0</span>
+            </div>
+            <div class="stat-box lives-box">
+                <span class="label">LIVES</span>
+                <div class="lives-container" id="livesDisplay">
+                    <!-- Lives icons drawn dynamically via JS or HTML -->
+                    <div class="life-icon"></div>
+                    <div class="life-icon"></div>
+                    <div class="life-icon"></div>
+                </div>
+            </div>
+            <div class="stat-box">
+                <span class="label">LEVEL</span>
+                <span class="value" id="levelDisplay">1</span>
+            </div>
+        </div>
+
+        <!-- Game Area Canvas -->
+        <div class="game-wrapper">
+            <!-- Maze is 28x31. Multiplied by tileSize e.g., 16 => 448 x 496 -->
+            <canvas id="gameCanvas" width="448" height="496"></canvas>
+
+            <!-- Overlays -->
+            <div id="startScreen" class="overlay active">
+                <h1 class="logo glow-yellow">PAC-MAN</h1>
+                <button id="startBtn" class="btn btn-yellow">PLAY</button>
+                <div class="instruction-text">Arrow keys or Swipe to move</div>
+                <a href="../../index.html" class="btn btn-secondary">Main Menu</a>
+            </div>
+
+            <div id="pauseScreen" class="overlay">
+                <h2 class="glow-yellow">PAUSED</h2>
+                <button id="resumeBtn" class="btn btn-yellow">RESUME</button>
+                <button id="restartBtnPause" class="btn btn-secondary">RESTART</button>
+                <a href="../../index.html" class="btn btn-secondary">Main Menu</a>
+            </div>
+
+            <div id="gameOverScreen" class="overlay">
+                <h2 class="glow-red">GAME OVER</h2>
+                <div class="score-summary">
+                    <div>Score: <span id="gameOverScore">0</span></div>
+                </div>
+                <button id="restartBtn" class="btn btn-yellow">PLAY AGAIN</button>
+                <a href="../../index.html" class="btn btn-secondary">Main Menu</a>
+            </div>
+        </div>
+
+        <!-- Mobile Controls (Hidden on Desktop) -->
+        <div class="mobile-controls" id="mobileControls">
+            <button id="btnPause" class="control-btn icon-btn pause-btn">||</button>
+            <div class="dpad">
+                <div class="dpad-row">
+                    <button id="btnUp" class="control-btn dpad-btn">&#9650;</button>
+                </div>
+                <div class="dpad-row center-row">
+                    <button id="btnLeft" class="control-btn dpad-btn">&#9664;</button>
+                    <div class="dpad-center"></div>
+                    <button id="btnRight" class="control-btn dpad-btn">&#9654;</button>
+                </div>
+                <div class="dpad-row">
+                    <button id="btnDown" class="control-btn dpad-btn">&#9660;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

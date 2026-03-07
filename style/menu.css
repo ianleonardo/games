@@ -1,0 +1,151 @@
+:root {
+    --bg-dark: #121212;
+    --text-light: #f5f5f5;
+    --accent-blue: #00d2ff;
+    --accent-pink: #ff00ea;
+    --accent-yellow: #ffea00;
+    --font-primary: 'Outfit', sans-serif;
+    --font-retro: 'Press Start 2P', cursive;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.logo {
+    font-family: var(--font-retro);
+    font-size: 3rem;
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    animation: glow-pulse 2s infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+@keyframes glow-pulse {
+    0% { filter: drop-shadow(0 0 5px rgba(0,210,255,0.4)); }
+    100% { filter: drop-shadow(0 0 15px rgba(255,0,234,0.6)); }
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.game-card {
+    display: block;
+    text-decoration: none;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    min-height: 200px;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.1;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.tetris-card::before {
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+}
+
+.pacman-card::before {
+    background: linear-gradient(135deg, #ffea00, #f8a5c2);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.game-card:hover::before {
+    opacity: 0.2;
+}
+
+.tetris-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+    border-color: #00d2ff;
+}
+
+.pacman-card:hover {
+    box-shadow: 0 10px 30px rgba(255, 234, 0, 0.2);
+    border-color: #ffea00;
+}
+
+.game-card-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-title {
+    font-family: var(--font-retro);
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.tetris-card .game-title {
+    color: #4facfe;
+}
+
+.pacman-card .game-title {
+    color: #ffea00;
+}
+
+.game-desc {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .logo { font-size: 2.2rem; }
+    .game-grid { grid-template-columns: 1fr; }
+}
