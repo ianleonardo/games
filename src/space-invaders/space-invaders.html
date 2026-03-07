@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Space Invaders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style/space-invaders.css">
+</head>
+
+<body>
+    <!-- Persistent Quit Button -->
+    <a href="../../index.html" class="quit-btn">QUIT MENU</a>
+
+    <div class="app-container">
+        <!-- Game Area Canvas -->
+        <div class="game-wrapper">
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+            <!-- Overlays -->
+            <div id="startScreen" class="overlay active">
+                <h1 class="logo glow space-title">SPACE INVADERS</h1>
+                <div class="high-score-display">Best: <span id="startHighScore">0</span></div>
+                <button id="startBtn" class="btn btn-primary">PLAY</button>
+                <div class="instruction-text">Desktop: Arrow Keys + Space<br>Mobile: On-screen Controls</div>
+                <a href="../../index.html" class="btn btn-secondary"
+                    style="margin-top:20px; text-decoration:none; display:inline-block;">Main Menu</a>
+            </div>
+
+            <div id="pauseScreen" class="overlay">
+                <h2 class="glow">PAUSED</h2>
+                <button id="resumeBtn" class="btn btn-primary">RESUME</button>
+                <button id="restartBtnPause" class="btn btn-secondary">RESTART</button>
+                <a href="../../index.html" class="btn btn-secondary"
+                    style="margin-top:10px; text-decoration:none; display:inline-block;">Main Menu</a>
+            </div>
+
+            <div id="gameOverScreen" class="overlay">
+                <h2 class="glow text-danger">GAME OVER</h2>
+                <div class="score-summary">
+                    <div>Score: <span id="gameOverScore">0</span></div>
+                    <div>Best: <span id="gameOverHighScore">0</span></div>
+                </div>
+                <button id="restartBtn" class="btn btn-primary">PLAY AGAIN</button>
+                <a href="../../index.html" class="btn btn-secondary"
+                    style="margin-top:10px; text-decoration:none; display:inline-block;">Main Menu</a>
+            </div>
+            
+            <div id="levelScreen" class="overlay">
+                <h2 class="glow" id="levelTitle">WAVE 1</h2>
+                <div class="instruction-text">Get Ready...</div>
+            </div>
+        </div>
+
+        <!-- UI Panels -->
+        <div class="panels-container">
+            <div class="panel score-panel">
+                <div class="panel-box">
+                    <div class="label">SCORE</div>
+                    <div class="value" id="scoreDisplay">0</div>
+                </div>
+                <div class="panel-box">
+                    <div class="label">WAVE</div>
+                    <div class="value" id="levelDisplay">1</div>
+                </div>
+                <div class="panel-box lives-panel">
+                    <div class="label">LIVES</div>
+                    <div class="value" id="livesDisplay">3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Controls (Hidden on Desktop) -->
+        <div class="mobile-controls" id="mobileControls">
+            <div class="control-row hold-row">
+                <button id="btnPause" class="control-btn icon-btn">||</button>
+            </div>
+            <div class="control-grid">
+                <div class="dpad">
+                    <button id="btnLeft" class="control-btn dpad-btn active-state">&#9664;</button>
+                    <button id="btnRight" class="control-btn dpad-btn active-state">&#9654;</button>
+                </div>
+                <div class="action-pad">
+                    <button id="btnShoot" class="control-btn action-btn active-state shoot-btn">&#9650;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script imports -->
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
