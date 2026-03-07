@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tetris</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Game Area Canvas -->
+        <div class="game-wrapper">
+            <canvas id="gameCanvas" width="300" height="600"></canvas>
+            
+            <!-- Overlays -->
+            <div id="startScreen" class="overlay active">
+                <h1 class="logo glow">TETRIS</h1>
+                <div class="high-score-display">Best: <span id="startHighScore">0</span></div>
+                <button id="startBtn" class="btn btn-primary">PLAY</button>
+                <div class="instruction-text">Tap or Press Space to start</div>
+            </div>
+
+            <div id="pauseScreen" class="overlay">
+                <h2 class="glow">PAUSED</h2>
+                <button id="resumeBtn" class="btn btn-primary">RESUME</button>
+                <button id="restartBtnPause" class="btn btn-secondary">RESTART</button>
+            </div>
+
+            <div id="gameOverScreen" class="overlay">
+                <h2 class="glow text-danger">GAME OVER</h2>
+                <div class="score-summary">
+                    <div>Score: <span id="gameOverScore">0</span></div>
+                    <div>Best: <span id="gameOverHighScore">0</span></div>
+                </div>
+                <button id="restartBtn" class="btn btn-primary">PLAY AGAIN</button>
+            </div>
+            
+            <!-- In-Game Notifications (e.g., TETRIS!) -->
+            <div id="notificationArea" class="notification-area"></div>
+        </div>
+
+        <!-- UI Panels -->
+        <div class="panels-container">
+            <div class="panel score-panel">
+                <div class="panel-box">
+                    <div class="label">SCORE</div>
+                    <div class="value" id="scoreDisplay">0</div>
+                </div>
+                <div class="panel-box">
+                    <div class="label">LEVEL</div>
+                    <div class="value" id="levelDisplay">1</div>
+                </div>
+                <div class="panel-box">
+                    <div class="label">LINES</div>
+                    <div class="value" id="linesDisplay">0</div>
+                </div>
+            </div>
+
+            <div class="side-panels">
+                <div class="panel-box hold-panel">
+                    <div class="label">HOLD</div>
+                    <canvas id="holdCanvas" width="120" height="120"></canvas>
+                </div>
+                <div class="panel-box next-panel">
+                    <div class="label">NEXT</div>
+                    <canvas id="nextCanvas" width="120" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Controls (Hidden on Desktop) -->
+        <div class="mobile-controls" id="mobileControls">
+            <div class="control-row hold-row">
+                <button id="btnHold" class="control-btn icon-btn">H</button>
+                <button id="btnPause" class="control-btn icon-btn">||</button>
+            </div>
+            <div class="control-grid">
+                <div class="dpad">
+                    <button id="btnLeft" class="control-btn dpad-btn active-state">&#9664;</button>
+                    <button id="btnDown" class="control-btn dpad-btn active-state">&#9660;</button>
+                    <button id="btnRight" class="control-btn dpad-btn active-state">&#9654;</button>
+                </div>
+                <div class="action-pad">
+                    <button id="btnRotate" class="control-btn action-btn active-state">&#8635;</button>
+                    <button id="btnHardDrop" class="control-btn action-btn active-state">&#8650;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script imports -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
