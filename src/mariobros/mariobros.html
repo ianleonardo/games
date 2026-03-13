@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Mario Bros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/mariobros.css">
+    
+    <!-- Phaser 3 -->
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+</head>
+<body>
+    <div id="game-container"></div>
+    
+    <!-- UI Overlay -->
+    <div id="ui-layer">
+        <div id="hud">
+            <div class="score-box">SCORE<br><span id="score">000000</span></div>
+            <div class="coins-box"><span class="coin-icon"></span>&#215;<span id="coins">00</span></div>
+            <div class="world-box">WORLD<br><span id="world">1-1</span></div>
+            <div class="time-box">TIME<br><span id="time">400</span></div>
+        </div>
+        
+        <div id="controls-layer">
+            <div class="dpad">
+                <button id="btn-left" class="control-btn">&#9664;</button>
+                <button id="btn-right" class="control-btn">&#9654;</button>
+            </div>
+            <div class="action-buttons">
+                <button id="btn-jump" class="control-btn">B</button>
+            </div>
+        </div>
+    </div>
+    
+    <button id="back-button" onclick="window.location.href='../../index.html'">BACK TO MENU</button>
+    <button id="mute-button">🔊</button>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

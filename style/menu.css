@@ -21,14 +21,16 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    align-items: flex-start;
+    padding: 4rem 0;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .hero-container {
     text-align: center;
     padding: 2rem;
-    max-width: 800px;
+    max-width: 1000px;
     width: 100%;
 }
 
@@ -109,6 +111,10 @@ body {
     background: linear-gradient(135deg, #ff3333, #aa0000);
 }
 
+.mariobros-card::before {
+    background: linear-gradient(135deg, #e52521, #00439c);
+}
+
 .game-card:hover {
     transform: translateY(-5px);
     border-color: rgba(255, 255, 255, 0.3);
@@ -137,6 +143,11 @@ body {
 .donkey-kong-card:hover {
     box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2);
     border-color: #ff3333;
+}
+
+.mariobros-card:hover {
+    box-shadow: 0 10px 30px rgba(229, 37, 33, 0.2);
+    border-color: #e52521;
 }
 
 .game-card-content {
@@ -173,6 +184,11 @@ body {
 .donkey-kong-card .game-title {
     color: #ff5555;
     text-shadow: 2px 2px 4px rgba(170, 0, 0, 0.8);
+}
+
+.mariobros-card .game-title {
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(229, 37, 33, 0.8);
 }
 
 .game-desc {
